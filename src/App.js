@@ -1,21 +1,72 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Navbar, Nav, NavItem } from "react-bootstrap";
+import { connect } from "react-redux";
+import About from "./components/About";
+import Contacts from "./components/Contacts";
+import Game from "./containers/Game";
 
 class App extends Component {
   render() {
+    const { fetching, events, onRequestEvents, error } = this.props;
+
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <Router>
+        <div>
+          <Navbar>
+            <Navbar.Header>
+              <Navbar.Brand>
+                <Link to="/">Играть</Link>
+              </Navbar.Brand>
+            </Navbar.Header>
+            <Nav>
+              <NavItem eventKey={1} componentClass="span">
+                <Link to="/about">Об игре</Link>
+              </NavItem>
+              <NavItem eventKey={2} componentClass="span">
+                <Link to="/contacts">Контакты</Link>
+              </NavItem>
+            </Nav>
+          </Navbar>
+
+          <Route
+            exact
+            path="/"
+            render={props => (
+              <Game
+                {...props}
+                events={events}
+                error={error}
+                onRequestEvents={onRequestEvents}
+                fetching={fetching}
+              />
+            )}
+          />
+          <Route path="/about" component={About} />
+          <Route path="/contacts" component={Contacts} />
+        </div>
+      </Router>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    fetching: state.fetching,
+    events: state.events,
+    error: state.error
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onRequestEvents: () => dispatch({ type: "API_CALL_REQUEST_MAIN" })
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);
