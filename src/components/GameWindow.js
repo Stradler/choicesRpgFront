@@ -5,18 +5,38 @@ import hero from "../images/characters/2.png";
 import devil from "../images/monster/devil.png";
 
 class GameWindow extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      click: 0,
+      winCondition: 6
+    }
+    this.alertMessage = this.alertMessage.bind(this);
+  }
+  alertMessage(message){
+      if(this.state.click >= this.state.winCondition){
+        alert("You won!");
+      } else {
+        this.setState({
+          winCondition: this.state.winCondition,
+          click: this.state.click + 1
+        });
+        alert(message)
+      }
+  }
   render() {
     return (
       <Grid className="GameWindow">
         <Row>
           <Col xs={4} lg={4}>
-            Goals: 5 hp, Hm: 5
+            <p>Goals: Click answers at least {this.state.winCondition} times!</p>
+            <p>{this.state.click} clicks!</p>
           </Col>
           <Col xs={4} lg={4}>
             <img src={devil} />
           </Col>
           <Col xs={4} lg={4}>
-            Alignment
+            Alignment (how good or bad you char is, under development)
           </Col>
         </Row>
         {this.props.mainEvents.map((event, index) => (
@@ -33,7 +53,7 @@ class GameWindow extends React.Component {
                 <Col xs={4} lg={4}>
                   <Button
                     bsStyle="success"
-                    onClick={() => alert(event.answers[0].mainMessage.message)}
+                    onClick={ () => this.alertMessage(event.answers[0].mainMessage.message)}
                   >
                     {event.answers[0].answer_name}
                   </Button>
@@ -44,7 +64,7 @@ class GameWindow extends React.Component {
                 <Col xs={4} lg={4}>
                   <Button
                     bsStyle="warning"
-                    onClick={() => alert(event.answers[1].mainMessage.message)}
+                    onClick={ () => this.alertMessage(event.answers[1].mainMessage.message)}
                   >
                     {event.answers[1].answer_name}
                   </Button>
@@ -61,7 +81,7 @@ class GameWindow extends React.Component {
             HP: 999, HM: 999
           </Col>
           <Col xs={4} lg={4}>
-            Inventory
+            Inventory:
           </Col>
         </Row>
       </Grid>

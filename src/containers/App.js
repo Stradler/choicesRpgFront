@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import About from "../components/About";
 import Contacts from "../components/Contacts";
 import Game from "../components/Game";
+import Login from "../containers/Login";
 
 class App extends Component {
   render() {
@@ -27,6 +28,9 @@ class App extends Component {
               <NavItem eventKey={2} componentClass="span">
                 <Link to="/contacts">Контакты</Link>
               </NavItem>
+              <NavItem eventKey={2} componentClass="span">
+                <Link to="/login">Login</Link>
+              </NavItem>
             </Nav>
           </Navbar>
           <div className="main">
@@ -45,6 +49,7 @@ class App extends Component {
             />
             <Route path="/about" component={About} />
             <Route path="/contacts" component={Contacts} />
+            <Route path="/login" component={Login} />
           </div>
 
           <Navbar className="navbar__custom" inverse>
