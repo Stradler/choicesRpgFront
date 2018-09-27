@@ -25,6 +25,7 @@ class GameWindow extends React.Component {
       }
   }
   render() {
+    const mainEvents = this.props.mainEvents || [];
     return (
       <Grid className="GameWindow">
         <Row>
@@ -39,7 +40,7 @@ class GameWindow extends React.Component {
             Alignment (how good or bad you char is, under development)
           </Col>
         </Row>
-        {this.props.mainEvents.map((event, index) => (
+        {mainEvents.map((event, index) => (
           <Row key={index}>
             <Row>
               <Col xs={4} lg={4} />

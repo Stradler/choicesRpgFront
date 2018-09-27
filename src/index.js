@@ -4,7 +4,6 @@ import "./index.css";
 import App from "./containers/App";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware, compose  } from "redux";
-import registerServiceWorker from "./registerServiceWorker";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { persistStore, persistReducer } from "redux-persist";
 import rootReducer from "./reducers";
@@ -33,4 +32,3 @@ ReactDOM.render(
   </Provider>,
   document.getElementById("root")
 );
-registerServiceWorker();

@@ -16,11 +16,17 @@
     "redux-persist": "^5.10.0",
     "redux-saga": "^0.16.0"
   },
+  "homepage": "http://stradler.github.io/choicesRpgFront",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
-  "proxy": "http://localhost:8081"
+  "proxy": "http://localhost:8081",
+  "devDependencies": {
+    "gh-pages": "^2.0.0"
+  }
 }
