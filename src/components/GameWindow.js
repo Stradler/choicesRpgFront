@@ -26,6 +26,9 @@ class GameWindow extends React.Component {
   }
   render() {
     const mainEvents = this.props.mainEvents || [];
+    if (mainEvents.length < 1){
+      return (<div>No Game yet!</div>);
+    }
     return (
       <Grid className="GameWindow">
         <Row>

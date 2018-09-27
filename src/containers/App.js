@@ -13,7 +13,7 @@ class App extends Component {
     const { fetching, events, onRequestEvents, error } = this.props;
 
     return (
-      <Router>
+      <Router basename="/choicesRpgFront">
         <div className="App">
           <Navbar>
             <Navbar.Header>
