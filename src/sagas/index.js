@@ -10,7 +10,7 @@ export function* watcherSaga() {
 function fetchMainEvents() {
   return axios({
     method: "get",
-    url: "/api/main"
+    url: "https://heroku-choices-rpg.herokuapp.com/"
   });
 }
 
