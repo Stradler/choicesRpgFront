@@ -1,10 +1,10 @@
 import React from "react";
-import {Well} from "react-bootstrap"
+import {Well, Grid} from "react-bootstrap"
 const About = (props) => {
   return(
-    <div>
+    <Grid>
       <Well>Simple About Page</Well>
-    </div>
+    </Grid>
   );
 }
 export default About;

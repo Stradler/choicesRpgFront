@@ -1,18 +1,15 @@
 import React from "react";
 import {Button} from "react-bootstrap";
+import GameWindow from "./GameWindow";
+import "./Game.css";
 const Game = (props) => {
   return(
-          <div className="App">
-          {props.events ? (
-            <p className="App-intro">Nice</p>
-          ) : (
-            <p className="App-intro">Not nice</p>
-          )}
-          <p>{props.events || "no data available"}</p>
+          <div className="Game">
+            <div><GameWindow mainEvents={props.events}/></div>
           {props.fetching ? (
             <Button disabled>Fetching...</Button>
           ) : (
-            <Button onClick={props.onRequestEvents}>Request a Events</Button>
+            <Button style={{width: "300px", margin: "0 auto"}} onClick={props.onRequestEvents}>Request Events</Button>
           )}
 
           {props.error && (

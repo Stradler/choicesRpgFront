@@ -1,11 +1,11 @@
 import React from "react";
-import {Well} from "react-bootstrap"
+import {Well, Grid} from "react-bootstrap"
 
 const Contacts = (props) => {
   return(
-    <div>
+    <Grid>
       <Well>Simple Contacts Page</Well>
-    </div>
+    </Grid>
   );
 }
 export default Contacts;
