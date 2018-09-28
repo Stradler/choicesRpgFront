@@ -23,7 +23,7 @@ class App extends Component {
     }
 
     return (
-      <Router basename="/choicesRpgFront">
+      <Router>
         <div className="App">
           <Navbar>
             <Navbar.Header>

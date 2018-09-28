@@ -16,7 +16,7 @@
     "redux-persist": "^5.10.0",
     "redux-saga": "^0.16.0"
   },
-  "homepage": "http://stradler.github.io/choicesRpgFront",
+  "homepage": "https://choices-rpg.herokuapp.com/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
