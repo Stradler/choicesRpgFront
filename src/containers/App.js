@@ -1,6 +1,12 @@
 import React, { Component } from "react";
 import "./App.css";
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Switch,
+  NavLink
+} from "react-router-dom";
 import { Navbar, Nav, NavItem } from "react-bootstrap";
 import { connect } from "react-redux";
 import About from "../components/About";
@@ -11,6 +17,10 @@ import Login from "../containers/Login";
 class App extends Component {
   render() {
     const { fetching, events, onRequestEvents, error } = this.props;
+    const activeLink = {
+      color: "blue",
+      fontWeight: "bold"
+    }
 
     return (
       <Router basename="/choicesRpgFront">
@@ -23,13 +33,18 @@ class App extends Component {
             </Navbar.Header>
             <Nav>
               <NavItem eventKey={1} componentClass="span">
-                <Link to="/about">Об игре</Link>
+                <NavLink
+                  activeStyle={activeLink}
+                  to="/about"
+                >
+                  Об игре
+                </NavLink>
               </NavItem>
               <NavItem eventKey={2} componentClass="span">
-                <Link to="/contacts">Контакты</Link>
+                <NavLink activeStyle={activeLink}  to="/contacts">Контакты</NavLink>
               </NavItem>
               <NavItem eventKey={3} componentClass="span">
-                <Link to="/login">Login</Link>
+                <NavLink activeStyle={activeLink} to="/login">Login</NavLink>
               </NavItem>
               <NavItem eventKey={4} componentClass="span">
                 <Link to="/github">Github</Link>
@@ -61,7 +76,7 @@ class App extends Component {
                   if (props.history.action === "PUSH") {
                     window.location =
                       "https://github.com/Stradler/choicesRpgFront";
-                  //else return to previous page
+                    //else return to previous page
                   } else {
                     props.history.goBack();
                   }
