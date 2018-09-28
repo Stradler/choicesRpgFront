@@ -28,8 +28,11 @@ class App extends Component {
               <NavItem eventKey={2} componentClass="span">
                 <Link to="/contacts">Контакты</Link>
               </NavItem>
-              <NavItem eventKey={2} componentClass="span">
+              <NavItem eventKey={3} componentClass="span">
                 <Link to="/login">Login</Link>
+              </NavItem>
+              <NavItem eventKey={4} componentClass="span">
+                <Link to="/github">Github</Link>
               </NavItem>
             </Nav>
           </Navbar>
@@ -47,21 +50,40 @@ class App extends Component {
                 />
               )}
             />
-            <Route path="/#about" component={About} />
-            <Route path="/#contacts" component={Contacts} />
-            <Route path="/#login" component={Login} />
+            <Switch>
+              <Route path="/about" component={About} />
+              <Route path="/contacts" component={Contacts} />
+              <Route path="/login" component={Login} />
+              <Route
+                path="/github"
+                component={props => {
+                  // check if it was clicked in navbar
+                  if (props.history.action === "PUSH") {
+                    window.location =
+                      "https://github.com/Stradler/choicesRpgFront";
+                  //else return to previous page
+                  } else {
+                    props.history.goBack();
+                  }
+                  return <div>There Was Redirection Animation...</div>;
+                }}
+              />
+            </Switch>
           </div>
 
           <Navbar className="navbar__custom" inverse>
             <Nav>
               <NavItem eventKey={3} componentClass="span">
-                <Link to="/#">Играть</Link>
+                <Link to="/">Играть</Link>
               </NavItem>
               <NavItem eventKey={1} componentClass="span">
-                <Link to="/#about">Об игре</Link>
+                <Link to="/about">Об игре</Link>
               </NavItem>
               <NavItem eventKey={2} componentClass="span">
-                <Link to="/#contacts">Контакты</Link>
+                <Link to="/contacts">Контакты</Link>
+              </NavItem>
+              <NavItem eventKey={4} componentClass="span">
+                <Link to="/github">Github</Link>
               </NavItem>
             </Nav>
           </Navbar>

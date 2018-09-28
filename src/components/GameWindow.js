@@ -38,7 +38,7 @@ class GameWindow extends React.Component {
             <p>{this.state.click} clicks!</p>
           </Col>
           <Col xs={4} lg={4}>
-            <img src={devil} />
+            <img alt="devil" src={devil} />
           </Col>
           <Col xs={4} lg={4}>
             Alignment (how good or bad you char is, under development)
@@ -64,7 +64,7 @@ class GameWindow extends React.Component {
                   </Button>
                 </Col>
                 <Col xs={4} lg={4}>
-                  <img src={hero} />
+                  <img alt="hero" src={hero} />
                 </Col>
                 <Col xs={4} lg={4}>
                   <Button

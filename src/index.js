@@ -4,7 +4,6 @@ import "./index.css";
 import App from "./containers/App";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware, compose  } from "redux";
-import { composeWithDevTools } from "redux-devtools-extension";
 import { persistStore, persistReducer } from "redux-persist";
 import rootReducer from "./reducers";
 import storage from "redux-persist/lib/storage";
