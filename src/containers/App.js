@@ -23,13 +23,13 @@ class App extends Component {
             </Navbar.Header>
             <Nav>
               <NavItem eventKey={1} componentClass="span">
-                <Link to="/#about">Об игре</Link>
+                <Link to="/about">Об игре</Link>
               </NavItem>
               <NavItem eventKey={2} componentClass="span">
-                <Link to="/#contacts">Контакты</Link>
+                <Link to="/contacts">Контакты</Link>
               </NavItem>
               <NavItem eventKey={2} componentClass="span">
-                <Link to="/#login">Login</Link>
+                <Link to="/login">Login</Link>
               </NavItem>
             </Nav>
           </Navbar>
