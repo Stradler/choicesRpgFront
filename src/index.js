@@ -21,7 +21,8 @@ const persistConfig = {
 };
 
 const reducer = persistReducer(persistConfig, rootReducer);
-const store = createStore(reducer, compose(applyMiddleware(sagaMiddleware),composeWithDevTools()));
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(reducer, composeEnhancer(compose(applyMiddleware(sagaMiddleware))));
 const persistor = persistStore(store);
 sagaMiddleware.run(watcherSaga);
 ReactDOM.render(
