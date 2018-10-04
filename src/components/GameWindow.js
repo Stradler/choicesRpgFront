@@ -26,7 +26,6 @@ class GameWindow extends React.Component {
   }
   render() {
     const mainEvents = this.props.mainEvents || [];
-    console.log(mainEvents)
     if (mainEvents.length < 1){
       return (<div>No Game yet!</div>);
     }
@@ -34,14 +33,13 @@ class GameWindow extends React.Component {
       <Grid className="GameWindow">
         <Row>
           <Col xs={4} lg={4}>
-            <p>Goals: Click answers at least {this.state.winCondition} times!</p>
-            <p>{this.state.click} clicks!</p>
+
           </Col>
           <Col xs={4} lg={4}>
             <img alt="devil" src={devil} />
           </Col>
           <Col xs={4} lg={4}>
-            Alignment (how good or bad you char is, under development)
+
           </Col>
         </Row>
         {mainEvents.map((event, index) => (

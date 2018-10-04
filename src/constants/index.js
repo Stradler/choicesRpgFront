@@ -1,4 +1,4 @@
-export const NEXT_LEVEL = "NEXT_LEVEL";
+export const CHANGE_AGE = "CHANGE_AGE";
 export const CHANGE_HP = "CHANGE_HP";
 export const CHANGE_MONEY = "CHANGE_MONEY";
 export const API_CALL_REQUEST_MAIN = "API_CALL_REQUEST_MAIN";
