@@ -3,18 +3,35 @@ import {mainEvents} from "./mainEvents";
 import {error} from "./error";
 import {fetching} from "./fetching";
 import {survivalEvents} from "./survivalEvents";
-import {AGE} from "./age";
-import {HP} from "./hp";
-import {MONEY} from "./money";
+import * as constants from "../constants";
 
 
+const ageReducer = function(state = 0.0, action){
+  switch(action.type){
+    default:
+      return state;
+  }
+}
 
+const hpReducer = function(state = 50, action){
+  switch(action.type){
+    default:
+      return state;
+  }
+}
+
+const moneyReducer = function(state = 0, action){
+  switch(action.type){
+    default:
+      return state;
+  }
+}
 export default combineReducers({
   mainEvents,
   error,
   fetching,
   survivalEvents,
-  AGE,
-  HP,
-  MONEY
+  AGE: ageReducer,
+  HP: hpReducer,
+  MONEY:moneyReducer
 });

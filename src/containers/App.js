@@ -15,8 +15,11 @@ import Game from "../components/Game";
 import Login from "../containers/Login";
 
 class App extends Component {
+  componentDidMount(){
+    this.props.onRequestEvents();
+  }
   render() {
-    const { fetching, events, onRequestEvents, error } = this.props;
+    const { fetching, events, error } = this.props;
     const activeLink = {
       color: "blue",
       fontWeight: "bold"
@@ -58,9 +61,8 @@ class App extends Component {
               render={props => (
                 <Game
                   {...props}
-                  events={events}
+                  mainEvents={events}
                   error={error}
-                  onRequestEvents={onRequestEvents}
                   fetching={fetching}
                 />
               )}

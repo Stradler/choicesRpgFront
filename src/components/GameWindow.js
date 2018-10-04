@@ -5,25 +5,6 @@ import hero from "../images/characters/2.png";
 import devil from "../images/monster/devil.png";
 
 class GameWindow extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      click: 0,
-      winCondition: 6
-    }
-    this.alertMessage = this.alertMessage.bind(this);
-  }
-  alertMessage(message){
-      if(this.state.click >= this.state.winCondition){
-        alert("You won!");
-      } else {
-        this.setState({
-          winCondition: this.state.winCondition,
-          click: this.state.click + 1
-        });
-        alert(message)
-      }
-  }
   render() {
     const mainEvents = this.props.mainEvents || [];
     if (mainEvents.length < 1){
@@ -42,7 +23,6 @@ class GameWindow extends React.Component {
 
           </Col>
         </Row>
-        {mainEvents.map((event, index) => (
           <Row key={index}>
             <Row>
               <Col xs={4} lg={4} />
@@ -56,7 +36,7 @@ class GameWindow extends React.Component {
                 <Col xs={4} lg={4}>
                   <Button
                     bsStyle="success"
-                    onClick={ () => this.alertMessage(event.answers[0].mainMessage.message)}
+                    onClick={}
                   >
                     {event.answers[0].answer_name}
                   </Button>
@@ -67,7 +47,7 @@ class GameWindow extends React.Component {
                 <Col xs={4} lg={4}>
                   <Button
                     bsStyle="warning"
-                    onClick={ () => this.alertMessage(event.answers[1].mainMessage.message)}
+                    onClick={}
                   >
                     {event.answers[1].answer_name}
                   </Button>
@@ -75,13 +55,12 @@ class GameWindow extends React.Component {
               </Row>
             </Grid>
           </Row>
-        ))}
         <Row>
           <Col xs={4} lg={4}>
             Placeholder
           </Col>
           <Col xs={4} lg={4}>
-            HP: 999, HM: 999
+            HP: {this.props.HP}, MONEY: {this.props.MONEY}
           </Col>
           <Col xs={4} lg={4}>
             Inventory:
