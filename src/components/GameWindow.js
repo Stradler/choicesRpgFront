@@ -7,9 +7,7 @@ import devil from "../images/monster/devil.png";
 class GameWindow extends React.Component {
   render() {
     const mainEvents = this.props.mainEvents || [];
-    if (mainEvents.length < 1){
-      return (<div>No Game yet!</div>);
-    }
+    const {event} = this.props;
     return (
       <Grid className="GameWindow">
         <Row>
@@ -23,7 +21,7 @@ class GameWindow extends React.Component {
 
           </Col>
         </Row>
-          <Row key={index}>
+          <Row>
             <Row>
               <Col xs={4} lg={4} />
               <Col xs={4} lg={4}>
@@ -36,7 +34,12 @@ class GameWindow extends React.Component {
                 <Col xs={4} lg={4}>
                   <Button
                     bsStyle="success"
-                    onClick={}
+                    onClick={()=>{
+                      if(event.answers[0].power){
+                        this.props.dispatchFirst(event.answers[0].power)
+                      }
+                      this.props.dispatchFirst(event.answers[0].reward.power)
+                      }}
                   >
                     {event.answers[0].answer_name}
                   </Button>
@@ -47,7 +50,12 @@ class GameWindow extends React.Component {
                 <Col xs={4} lg={4}>
                   <Button
                     bsStyle="warning"
-                    onClick={}
+                    onClick={()=>{
+                      if(event.answers[1].power){
+                        this.props.dispatchFirst(event.answers[1].power)
+                      }
+                      this.props.dispatchFirst(event.answers[1].reward.power)
+                      }}
                   >
                     {event.answers[1].answer_name}
                   </Button>

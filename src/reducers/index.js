@@ -8,6 +8,8 @@ import * as constants from "../constants";
 
 const ageReducer = function(state = 0.0, action){
   switch(action.type){
+    case constants.CHANGE_AGE:
+      return action.payload.age;
     default:
       return state;
   }
@@ -15,6 +17,8 @@ const ageReducer = function(state = 0.0, action){
 
 const hpReducer = function(state = 50, action){
   switch(action.type){
+    case constants.CHANGE_HP:
+      return action.payload.hp + state;
     default:
       return state;
   }
@@ -22,6 +26,8 @@ const hpReducer = function(state = 50, action){
 
 const moneyReducer = function(state = 0, action){
   switch(action.type){
+    case constants.CHANGE_MONEY:
+      return action.payload.money + state;
     default:
       return state;
   }
