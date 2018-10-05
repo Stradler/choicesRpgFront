@@ -85,6 +85,7 @@ class App extends Component {
                   return <div>There Was Redirection Animation...</div>;
                 }}
               />
+
             </Switch>
           </div>
 

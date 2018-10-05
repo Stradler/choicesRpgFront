@@ -1,5 +1,10 @@
 import * as constants from "../constants";
-import {createActions} from "redux-actions";
+
+export const resetGame = (age) => {
+  return{
+    type: constants.RESET_GAME,
+  }
+}
 
 export const changeAGE = (age) => {
   return{
